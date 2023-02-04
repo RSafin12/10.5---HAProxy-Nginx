@@ -33,8 +33,14 @@ return 200 'nginx is configured correctly';
 ## Задание 3-6
 3. Установите и запустите Haproxy.
 Приведите скриншот systemctl status haproxy, где будет видно, что Haproxy запущен.
+![haproxy-installed](https://github.com/RSafin12/10.5-HAProxy-Nginx/blob/main/haproxy-installed.png)
+
 6. Настройте Haproxy таким образом, чтобы при ответе на запрос:
 curl http://localhost:8080/
 он проксировал его в Nginx на порту 8088, который был настроен в задании 5 и возвращал от него ответ:
 "nginx is configured correctly".
 Приведите конфигурации настроенного Haproxy и скриншоты результата выполнения команды curl http://localhost:8080/.
+
+Я настроил 2 VDS, повесив на nginx разные сообщения. 
+Результат выполнения, как видно при curl-запросе поочередно перкидвает на разные серверы. 
+![haproxy_balansing](https://github.com/RSafin12/10.5-HAProxy-Nginx/blob/main/haproxy_balansing.png)
