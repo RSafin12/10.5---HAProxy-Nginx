@@ -18,12 +18,22 @@ curl http://localhost:8088/ping
 "nginx is configured correctly".
 Приведите конфигурации настроенного Nginx сервиса и скриншот результата выполнения команды curl http://localhost:8088/ping.
 
+```
+server {
+listen 8088;
+
+location /{
+return 200 'nginx is configured correctly';
+ }
+}
+```
+
 ![nginx_result](https://github.com/RSafin12/10.5-HAProxy-Nginx/blob/main/nginx_result.png)
 
 ## Задание 3-6
-Установите и запустите Haproxy.
+3. Установите и запустите Haproxy.
 Приведите скриншот systemctl status haproxy, где будет видно, что Haproxy запущен.
-Настройте Haproxy таким образом, чтобы при ответе на запрос:
+6. Настройте Haproxy таким образом, чтобы при ответе на запрос:
 curl http://localhost:8080/
 он проксировал его в Nginx на порту 8088, который был настроен в задании 5 и возвращал от него ответ:
 "nginx is configured correctly".
