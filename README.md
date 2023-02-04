@@ -44,3 +44,19 @@ curl http://localhost:8080/
 Я настроил 2 VDS, повесив на nginx разные сообщения. 
 Результат выполнения, как видно при curl-запросе поочередно перкидвает на разные серверы. 
 ![haproxy_balansing](https://github.com/RSafin12/10.5-HAProxy-Nginx/blob/main/haproxy_balansing.png)
+
+Для настройки балансировки в дефолтный файл /etc/haproxy/haproxy.cfg добавил секции frontend и backend. Весь конфиг не привожу, он доступен [тут](https://github.com/RSafin12/10.5-HAProxy-Nginx/blob/main/haproxy.cfg). 
+```
+### Fronted section
+frontend task-6_front
+bind *:8080
+# status uri /haproxy?stats
+default_backend task-6_back
+
+### Backend section
+backend task-6_back
+balance roundrobin
+# mode http
+server brave 90.156.227.77:8088 check
+server strong 90.156.227.66:8088 check
+```
