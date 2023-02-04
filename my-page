@@ -1,0 +1,7 @@
+server {
+listen 8088;
+
+location /{
+return 200 'nginx is configured correctly';
+ }
+}
