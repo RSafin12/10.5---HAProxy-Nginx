@@ -3,18 +3,11 @@ Load Balansing with HAProxy and Nginx
 
 ## Задание 1
 Что такое балансировка нагрузки и зачем она нужна?
-
 Приведите ответ в свободной форме.
 
 ## Задание 2
 Чем отличаются алгоритмы балансировки Round Robin и Weighted Round Robin? В каких случаях каждый из них лучше применять?
-
 Приведите ответ в свободной форме.
-
-## Задание 3
-Установите и запустите Haproxy.
-
-Приведите скриншот systemctl status haproxy, где будет видно, что Haproxy запущен.
 
 ## Задание 4-5
 4. Установите и запустите Nginx.
@@ -25,14 +18,13 @@ curl http://localhost:8088/ping
 "nginx is configured correctly".
 Приведите конфигурации настроенного Nginx сервиса и скриншот результата выполнения команды curl http://localhost:8088/ping.
 
-![nginx_result]()
-## Задание 6*
+![nginx_result](https://github.com/RSafin12/10.5-HAProxy-Nginx/blob/main/nginx_result.png)
+
+## Задание 3-6
+Установите и запустите Haproxy.
+Приведите скриншот systemctl status haproxy, где будет видно, что Haproxy запущен.
 Настройте Haproxy таким образом, чтобы при ответе на запрос:
-
 curl http://localhost:8080/
-
 он проксировал его в Nginx на порту 8088, который был настроен в задании 5 и возвращал от него ответ:
-
 "nginx is configured correctly".
-
 Приведите конфигурации настроенного Haproxy и скриншоты результата выполнения команды curl http://localhost:8080/.
